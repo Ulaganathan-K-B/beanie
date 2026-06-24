@@ -44,19 +44,19 @@ def test_or_with_bool():
     """Test that Or() properly handles single bool expression (issue #1000)."""
     q = Or(True)
     assert q == {"$or": [True]}
-    assert isinstance(q, dict)
+    assert q.query == {"$or": [True]}
 
     q = Or(False)
     assert q == {"$or": [False]}
-    assert isinstance(q, dict)
+    assert q.query == {"$or": [False]}
 
 
 def test_and_with_bool():
     """Test that And() properly handles single bool expression (issue #1000)."""
     q = And(True)
     assert q == {"$and": [True]}
-    assert isinstance(q, dict)
+    assert q.query == {"$and": [True]}
 
     q = And(False)
     assert q == {"$and": [False]}
-    assert isinstance(q, dict)
+    assert q.query == {"$and": [False]}
